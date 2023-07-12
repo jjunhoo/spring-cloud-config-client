@@ -1,0 +1,22 @@
+server:
+  port: 9091
+
+# config server 로 http://localhost:9090 지정
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+  #application:
+    #name: myapp
+  #profiles:
+    #active: dev
+
+  cloud:
+    config:
+      name: myapp
+      profile: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
